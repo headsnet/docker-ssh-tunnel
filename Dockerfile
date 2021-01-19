@@ -11,11 +11,11 @@ CMD rm -rf /root/.ssh && \
     cp -R /root/ssh/* /root/.ssh/ && \
     chmod -R 600 /root/.ssh/* && \
     ssh \
-    -p 2020 \
+    -p $SSH_PORT \
     -vv \
     -o StrictHostKeyChecking=no \
     -N \
-    -L *:$LOCAL_PORT:127.0.0.1:$REMOTE_PORT \
+    -L *:$LOCAL_PORT:$TUNNEL_HOST:$REMOTE_PORT \
     $REMOTE_USER@$REMOTE_HOST && \
     while true; do sleep 30; done;
 
