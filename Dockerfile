@@ -11,7 +11,7 @@ CMD rm -rf /root/.ssh && \
     cp -R /root/ssh/* /root/.ssh/ && \
     chmod -R 600 /root/.ssh/* && \
     ssh \
-    -p $SSH_PORT \
+    -p ${SSH_PORT:-22} \
     -vv \
     -o StrictHostKeyChecking=no \
     -N \
